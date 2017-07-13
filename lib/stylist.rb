@@ -25,3 +25,9 @@ class Stylist
    name = result.first().fetch("name")
    Stylist.new({:name => name, :id => id})
  end
+
+#method which will save my data.
+ define_method(:save) do
+   result = DB.exec("INSERT INTO movies (name) VALUES ('#{@name}') RETURNING id;")
+   @id = result.first().fetch("id").to_i()
+ end
