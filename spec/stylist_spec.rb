@@ -1,6 +1,6 @@
 require('spec_helper')
 
-describe(Hair_salon) do
+describe(Stylist) do
   # all the stylist available.
   describe('.all') do
     it('starts off with no stylists') do
@@ -19,13 +19,14 @@ describe(Hair_salon) do
     end
   end
 
-  # pulls data from the database to the page.
+  # object with same name and id are saved as one.
   describe('#==') do
-    it('lets you update stylists in the database') do
+    it('is the same stylist if it has the same name and id') do
       stylist = Stylist.new(name: 'Dennis', id: nil)
-      stylist.save
-      movie.update(name: 'Dennis')
-      expect(stylist.name).to(eq('Dennis'))
+      stylist2 = Stylist.new(name: 'Dennis', id: nil)
+      expect(stylist).to(eq(stylist2))
     end
   end
+
+  # function to update the existing stylists.
 end
