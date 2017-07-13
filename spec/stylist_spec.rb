@@ -29,4 +29,12 @@ describe(Stylist) do
   end
 
   # function to update the existing stylists.
+  describe('#update') do
+    it('lets you update stylist in the database') do
+      stylist = Stylist.new(name: 'Lucy', id: nil)
+      stylist.save
+      stylist.update(name: 'John')
+      expect(stylist.name).to(eq('John'))
+    end
+  end
 end
