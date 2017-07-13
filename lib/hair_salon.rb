@@ -18,4 +18,14 @@ describe(Hair_salon) do
       expect(Stylist.find(test_stylist2.id)).to(eq(test_stylist2))
     end
   end
+
+  # pulls data from the database to the page.
+  describe('#==') do
+    it('lets you update stylists in the database') do
+      stylist = Stylist.new(name: 'Dennis', id: nil)
+      stylist.save
+      movie.update(name: 'Dennis')
+      expect(stylist.name).to(eq('Dennis'))
+    end
+  end
 end
