@@ -19,6 +19,14 @@ describe(Stylist) do
     end
   end
 
+  # tells you the name.
+  describe('#name') do
+    it('tells tou its name') do
+      stylist = Stylist.new(name: 'Grace', id: nil)
+      expect(Stylist.name).to(eq('Grace'))
+    end
+  end
+
   # object with same name and id are saved as one.
   describe('#==') do
     it('is the same stylist if it has the same name and id') do
