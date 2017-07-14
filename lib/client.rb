@@ -1,10 +1,10 @@
 class Client
-  attr_reader(:name, :id)
+  attr_reader(:name, :stylist_id)
 
   # initialize method.
   define_method(:initialize) do |attributes|
     @name = attributes.fetch(:name)
-    @id = attributes.fetch(:id)
+    @stylist_id = attributes.fetch(:stylist_id)
   end
 
   # loops fetching all the clients in the database.
@@ -13,8 +13,8 @@ class Client
     clients = []
     returned_clients.each do |client|
       name = client.fetch('name')
-      id = client.fetch('id').to_i
-      clients.push(Client.new(name: name, id: id))
+      stylist_id = client.fetch('stylist_id').to_i
+      clients.push(Client.new(name: name, stylist_id: stylist_id))
     end
     clients
   end
@@ -28,13 +28,12 @@ class Client
 
   # save method.
   define_method(:save) do
-    result = DB.exec("INSERT INTO clients (name) VALUES ('#{@name}') RETURNING id;")
-    @id = result.first.fetch('id').to_i
+    result = DB.exec("INSERT INTO clients (name, stylist_id) VALUES ('#{@name}', #{@stylist_id});")
   end
 
   # compare method.
   define_method(:==) do |another_client|
-    name.==(another_client.name).&(id.==(another_client.id))
+    name.==(another_client.name).&(stylist_id.==(another_client.stylist_id))
   end
 
   # update method.
@@ -46,6 +45,6 @@ class Client
 
   # delete function.
   define_method(:delete) do
-    DB.exec("DELETE FROM clients WHERE id = #{id};")
+    DB.exec("DELETE FROM clients WHERE id = #{stylist};")
   end
 end
