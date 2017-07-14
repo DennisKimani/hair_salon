@@ -1,7 +1,7 @@
 require('rspec')
 require('pg')
-require('stylist')
-require('client')
+require('client') # task
+require('stylist') # list
 
 DB = PG.connect(dbname: 'hair_salon_test')
 
