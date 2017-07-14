@@ -49,4 +49,14 @@ describe(Client) do
       expect(client.name).to(eq('Kimani'))
     end
   end
+
+  # delete function
+  describe('#delete') do
+    it('delete the client in the database') do
+      client = Client.new(name: 'John', id: nil)
+      client.save
+      client.delete
+      expect(client.name).to(eq([]))
+    end
+  end
 end
