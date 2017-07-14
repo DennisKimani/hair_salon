@@ -55,8 +55,10 @@ describe(Client) do
     it('delete the client in the database') do
       client = Client.new(name: 'John', id: nil)
       client.save
+      client2 = Client.new(name: 'Lucy', id: nil)
+      client2.save
       client.delete
-      expect(client.name).to(eq([]))
+      expect(Client.all).to(eq([client2]))
     end
   end
 end
