@@ -9,7 +9,7 @@ class Stylist
 
 # fetches all the names of the stylist's available.
  define_singleton_method(:all) do
-    returned_movies = DB.exec("SELECT * FROM stylists;")
+    returned_stylists = DB.exec("SELECT * FROM stylists;")
     stylists = []
     returned_stylists.each() do |stylist|
       name = stylist.fetch("name")
@@ -28,9 +28,11 @@ class Stylist
 
 #method which will save my data.
  define_method(:save) do
-   result = DB.exec("INSERT INTO movies (name) VALUES ('#{@name}') RETURNING id;")
+   result = DB.exec("INSERT INTO stylists (name) VALUES ('#{@name}') RETURNING id;")
    @id = result.first().fetch("id").to_i()
  end
 
 #method which compares two objects and if similiar will save as one.
- define_method(:==) do |another
+ define_method(:==) do |another_stylist|
+   self.name().==(another_stylist.name()).&(self.id().==(another_stylist.id()))
+ end
