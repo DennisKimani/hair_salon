@@ -30,4 +30,13 @@ describe(Client) do
       expect(Client.find(test_client2.id)).to(eq(test_client2))
     end
   end
+
+  # compares the info for both the info  entered and that stored.
+  describe('#==') do
+    it('is the same client if it has the same name and id') do
+      client = Client.new(name: 'Vivian', id: nil)
+      client2 = Client.new(name: 'Vivian', id: nil)
+      expect(client).to(eq(client2))
+    end
+  end
 end
