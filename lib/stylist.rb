@@ -31,3 +31,6 @@ class Stylist
    result = DB.exec("INSERT INTO movies (name) VALUES ('#{@name}') RETURNING id;")
    @id = result.first().fetch("id").to_i()
  end
+
+#method which compares two objects and if similiar will save as one.
+ define_method(:==) do |another
