@@ -2,7 +2,7 @@ require('spec_helper')
 
 describe(Client) do
   # initialize method for the client.
-  define_method(:initialize) do
+  describe(:initialize) do
     it('is initialized with a name') do
       client = Client.new(nmae: 'Lucy', id: nil)
       expect(client).to(be_an_instance_of(Client))
