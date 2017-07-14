@@ -20,6 +20,15 @@ describe(Client) do
     end
   end
 
+  #save function.
+  describe("#save") do
+    it("adds a client to the array of saved clients") do
+      test_client = Client.new({:name => "Lucy", :stylist_id => 1})
+      test_client.save()
+      expect(Client.all()).to(eq([test_client]))
+    end
+  end
+
   # finds the client through the id.
   describe('.find') do
     it('returns a client by its ID number') do
