@@ -37,6 +37,14 @@ describe(Client) do
     end
   end
 
+  #calls the stylist id.
+  describe("#list_id") do
+    it("lets you read the stylist ID out") do
+      test_client = Client.new({:name => "Hannah", stylist_id => 1})
+      expect(test_client.stylist_id()).to(eq(1))
+    end
+  end
+
   # finds the client through the id.
   describe('.find') do
     it('returns a client by its ID number') do
