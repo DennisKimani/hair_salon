@@ -12,4 +12,11 @@ describe(Client) do
       expect(client).to(be_an_instance_of(Client))
     end
   end
+
+  # displays all of the clients name.
+  describe('.all') do
+    it('starts off with no movies') do
+      expect(Client.all).to(eq([]))
+    end
+  end
 end
