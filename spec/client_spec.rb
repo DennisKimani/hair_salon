@@ -4,7 +4,7 @@ describe(Client) do
   # initialize method for the client.
   describe(:initialize) do
     it('is initialized with a name') do
-      client = Client.new(nmae: 'Lucy', id: nil)
+      client = Client.new(name: 'Lucy', id: nil)
       expect(client).to(be_an_instance_of(Client))
     end
     it('can be initialized with its database ID') do
