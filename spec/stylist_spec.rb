@@ -23,7 +23,7 @@ describe(Stylist) do
   describe('#name') do
     it('tells tou its name') do
       stylist = Stylist.new(name: 'Grace', id: nil)
-      expect(Stylist.name).to(eq('Grace'))
+      expect(stylist.name).to(eq('Grace'))
     end
   end
 
@@ -32,7 +32,7 @@ describe(Stylist) do
     it('sets its ID when you save it') do
       stylist = Stylist.new(name: 'John', id: nil)
       stylist.save
-      expect(list.id).to(be_an_instance_of(Integer))
+      expect(stylist.id).to(be_an_instance_of(Fixnum))
     end
   end
 
@@ -52,17 +52,6 @@ describe(Stylist) do
       stylist.save
       stylist.update(name: 'John')
       expect(stylist.name).to(eq('John'))
-    end
-
-    it('lets you add an client to a stylist') do
-      stylist = Stylist.new(name: 'Dennis', id: nil)
-      stylist.save
-      george = Client.new(name: 'George', id: nil)
-      george.save
-      john = Client.new(name: 'John', id: nil)
-      john.save
-      stylist.update(client_ids: [george.id, john.id])
-      expect(stylist.client).to(eq([george, john]))
     end
   end
 
