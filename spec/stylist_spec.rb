@@ -27,6 +27,15 @@ describe(Stylist) do
     end
   end
 
+  # tells the id of the stylist.
+  describe('#id') do
+    it('sets its ID when you save it') do
+      stylist = Stylist.new(name: 'John', id: nil)
+      stylist.save
+      expect(list.id).to(be_an_instance_of(Integer))
+    end
+  end
+
   # object with same name and id are saved as one.
   describe('#==') do
     it('is the same stylist if it has the same name and id') do
