@@ -1,7 +1,7 @@
 require('rspec')
 require('pg')
 require('stylist')
-# require('actor')
+require('client')
 
 DB = PG.connect(dbname: 'hair_salon_test')
 
