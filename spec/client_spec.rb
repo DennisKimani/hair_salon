@@ -39,4 +39,14 @@ describe(Client) do
       expect(client).to(eq(client2))
     end
   end
+
+  # updates the existing client.
+  describe('#update') do
+    it('updates the client in the database') do
+      client = Client.new(name: 'George', id: nil)
+      client.save
+      client.update(name: 'Kimani')
+      expect(client.name).to(eq('Kimani'))
+    end
+  end
 end
