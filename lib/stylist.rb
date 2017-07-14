@@ -34,7 +34,7 @@ class Stylist
 
   # method which compares two objects and if similiar will save as one.
   define_method(:==) do |another_stylist|
-    name.==(another_stylist.name).&(id.==(another_stylist.id))
+    self.name().==(another_stylist.name).&(self.id().==(another_stylist.id))
   end
 
   # method to update our objects.
