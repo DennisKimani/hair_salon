@@ -18,3 +18,10 @@ define_singleton_method(:all) do
 end
 clients
 end
+
+#find data through the database.
+define_singleton_method(:find) do |id|
+  result = DB.exec("SELECT * FROM clients WHERE id = #{id};")
+  name = result.first().fetch("name")
+  Client.new({:name =>name, :id => id})
+end
