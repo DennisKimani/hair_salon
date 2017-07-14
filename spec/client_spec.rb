@@ -20,12 +20,20 @@ describe(Client) do
     end
   end
 
-  #save function.
-  describe("#save") do
-    it("adds a client to the array of saved clients") do
-      test_client = Client.new({:name => "Lucy", :stylist_id => 1})
-      test_client.save()
-      expect(Client.all()).to(eq([test_client]))
+  # save function.
+  describe('#save') do
+    it('adds a client to the array of saved clients') do
+      test_client = Client.new(name: 'Lucy', stylist_id: 1)
+      test_client.save
+      expect(Client.all).to(eq([test_client]))
+    end
+  end
+
+  # displays the name of client.
+  describe('#name') do
+    it('lets you read the names out') do
+      test_client = Client.new(name: 'Lucy', stylist_id: 1)
+      expect(test_client.name).to(eq('Lucy'))
     end
   end
 
