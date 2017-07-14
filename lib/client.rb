@@ -25,3 +25,9 @@ define_singleton_method(:find) do |id|
   name = result.first().fetch("name")
   Client.new({:name =>name, :id => id})
 end
+
+#save method.
+define_method(:save) do
+  result = DB.exec("INSERT INTO clients (name) VALUES ('#{@name}') RETURNING id;")
+  @id = result.first().fetch("id").to_i()
+end
