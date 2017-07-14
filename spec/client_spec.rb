@@ -19,4 +19,15 @@ describe(Client) do
       expect(Client.all).to(eq([]))
     end
   end
+
+  # finds the client through the id.
+  describe('.find') do
+    it('returns a client by its ID number') do
+      test_client = Client.new(name: 'John', id: nil)
+      test_client.save
+      test_client2 = Client.new(name: 'Wanja', id: nil)
+      test_client2.save
+      expect(Client.find(test_client2.id)).to(eq(test_client2))
+    end
+  end
 end
