@@ -36,6 +36,17 @@ describe(Stylist) do
       stylist.update(name: 'John')
       expect(stylist.name).to(eq('John'))
     end
+
+    it("lets you add an client to a stylist") do
+      stylist =Stylist.new({:name => "Dennis", :id => nil})
+      stylist.save()
+      george = Client.new({:name => "George", :id =>nil})
+      george.save()
+      john = Client.new({:name => "John", :id => nil})
+      john.save()
+      stylist.update({:client_ids => [george.id(), john.id()]})
+      expect(stylist.client()).to(eq([george, john]))
+    end
   end
 
   # delete the stylist work
