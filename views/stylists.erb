@@ -17,3 +17,12 @@
 <p>There are no available Stylists.</p>
 
 <% end %>
+
+<form action="/stylists" method="post">
+  <input id="stylist" name="stylist" type="hidden"">
+
+  <label for="name">Name of the stylist:</label>
+  <input id="name" name="name" type="text">
+
+  <button type="submit">Add stylist</button>
+</form>
