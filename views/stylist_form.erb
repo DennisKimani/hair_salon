@@ -1,0 +1,14 @@
+<form action="/stylists" method="post">
+  <input id="stylist" name="stylist" type="hidden" value="<%= @stylist.id() %>">
+
+  <label for="name">Name of the stylist:</label>
+  <input id="name" name="name" type="text">
+
+  <button type="submit">Add stylist</button>
+</form>
+
+
+<div class="container">
+  <button class="button btn"><a href="/">Home</a></button>
+  <button class="button btn"><a href="/stylists">View All Stylists</a></button>
+</div>
