@@ -8,6 +8,10 @@ require('pg')
 
 DB = PG.connect(dbname: 'hair_salon')
 
-get("/") do
+get('/') do
   erb(:index)
+end
+
+get('/stylists/new') do
+  erb(:list_form)
 end
