@@ -20,11 +20,11 @@ class Stylist
   end
 
   # finds all the data.
-  define_singleton_method(:find) do |id|
-    result = DB.exec("SELECT * FROM stylists WHERE id = #{id};")
-    name = result.first.fetch('name')
-    Stylist.new(name: name, id: id)
-  end
+  # define_singleton_method(:find) do |id|
+  #   result = DB.exec("SELECT * FROM stylists WHERE id = #{id};")
+  #   name = result.first.fetch('name')
+  #   Stylist.new(name: name, id: id)
+  # end
 
   #find again.
   define_singleton_method(:find) do |id|
@@ -35,6 +35,18 @@ class Stylist
       end
     end
     found_stylist
+  end
+
+  #client side
+  define_method(:clients) do
+    stylist_clients = []
+    clients = DB.exec("SELECT * FROM clients WHERE stylist_id = #{self.id()};")
+    clients.each() do |client|
+      name = client.fetch("name")
+      stylist_id = client.fetch("stylist_id").to_i()
+      stylist_clients.push(Client.new({:name => name, :stylist_id => stylist_id}))
+    end
+    stylist_clients
   end
 
   # method which will save my data.
