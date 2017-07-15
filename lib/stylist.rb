@@ -26,6 +26,17 @@ class Stylist
     Stylist.new(name: name, id: id)
   end
 
+  #find again.
+  define_singleton_method(:find) do |id|
+    found_stylist = nil
+    Stylist.all().each() do |stylist|
+      if stylist.id().==(id)
+        found_stylist = stylist
+      end
+    end
+    found_stylist
+  end
+
   # method which will save my data.
   define_method(:save) do
     result = DB.exec("INSERT INTO stylists (name) VALUES ('#{@name}') RETURNING id;")
