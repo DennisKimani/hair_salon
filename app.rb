@@ -1,4 +1,3 @@
-
 require('sinatra')
 require('sinatra/reloader')
 also_reload('lib/**/*.rb')
@@ -32,3 +31,12 @@ post('/stylists') do
   stylist.save
   erb(:stylist_success)
 end
+
+post("/clients") do
+    name = params.fetch("name")
+    stylist_id = params.fetch("stylist_id").to_i()
+    @stylist = List.find(stylist_id)
+    @client = Client.new({:name => name, :stylist_id => stylist_id})
+    @client.save()
+    erb(:client_success)
+  end
