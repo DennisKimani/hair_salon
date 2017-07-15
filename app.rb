@@ -16,6 +16,11 @@ get('/stylists/new') do
   erb(:stylist_form)
 end
 
+get("/stylists") do
+  @stylists = Stylist.all()
+  erb(:stylists)
+end
+
 post('/stylists') do
   name = params.fetch('name')
   stylist = Stylist.new(name: name, id: nil)
