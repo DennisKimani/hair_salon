@@ -16,9 +16,9 @@ get('/stylists/new') do
   erb(:stylist_form)
 end
 
-post("/stylists") do
-  name = params.fetch("name")
-  stylist = Stylist.new({:name => name, :id => nil})
-  stylist.save()
+post('/stylists') do
+  name = params.fetch('name')
+  stylist = Stylist.new(name: name, id: nil)
+  stylist.save
   erb(:stylist_success)
 end
