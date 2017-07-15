@@ -12,3 +12,13 @@ describe('adding a new stylist', type: :feature) do
     expect(page).to have_content('Success!')
   end
 end
+
+describe('viewing all of the stylists', type: :feature) do
+  it('allows a user to see all of the stylists that have been created') do
+    stylist = Stylist.new(name: 'Moringaschool Homework')
+    stylist.save
+    visit('/')
+    click_link('View All Stylists')
+    expect(page).to have_content(stylist.name)
+  end
+end
