@@ -34,7 +34,7 @@ describe(Stylist) do
 
   # tells you the name.
   describe('#name') do
-    it('tells tou its name') do
+    it('tells you its name') do
       stylist = Stylist.new(name: 'Grace', id: nil)
       expect(stylist.name).to(eq('Grace'))
     end
