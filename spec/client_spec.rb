@@ -14,11 +14,11 @@ describe(Client) do
   # end
 
   # displays all of the clients name.
-  describe('.all') do
-    it('starts off with no movies') do
-      expect(Client.all).to(eq([]))
-    end
-  end
+  # describe('.all') do
+  #   it('starts off with no movies') do
+  #     expect(Client.all).to(eq([]))
+  #   end
+  # end
 
   # save function.
   describe('#save') do
